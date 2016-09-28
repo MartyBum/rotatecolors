@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+<!DOCTYPE plugin SYSTEM "manifest.dtd">
+<plugin version="2">
+	<info>
+		<version>1.0</version>
+		<name>rotatecolors</name>
+		<title>Rotate Colors</title>
+		<author>Martijn Alberts</author>
+		<description>Rotate the colors in WebApp</description>
+	</info>
+	<config>
+		<configfile>config.php</configfile>
+	</config>
+	<components>
+		<component>
+			<files>
+				<server>
+					<serverfile>php/plugin.rotatecolors.php</serverfile>
+				</server>
+				<client>
+					<clientfile load="release">js/settings/RotateColorsSettingsWidget.js</clientfile>
+					<clientfile load="release">js/rotatecolors.js</clientfile>
+					
+					<clientfile load="debug">js/settings/RotateColorsSettingsWidget.js</clientfile>
+					<clientfile load="debug">js/rotatecolors.js</clientfile>			
+					
+					<clientfile load="source">js/settings/RotateColorsSettingsWidget.js</clientfile>
+					<clientfile load="source">js/rotatecolors.js</clientfile>
+				</client>
+			</files>
+		</component>
+	</components>
+</plugin>
