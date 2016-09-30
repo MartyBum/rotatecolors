@@ -44,7 +44,7 @@ class Pluginrotatecolors extends Plugin {
 			'zarafa' => Array(
 				'v1' => Array(
 					'plugins' => Array(
-						'comicsansit' => Array(
+						'rotatecolors' => Array(
 							'enable' => PLUGIN_ROTATECOLORS_USER_DEFAULT_ENABLE
 						)
 					)

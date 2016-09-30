@@ -38,10 +38,16 @@ Zarafa.plugins.rotatecolors.RotateColorsSettingsWidget = Ext.extend(Zarafa.setti
     onChange : function(slider, newVal) {
         // Change the css
     	document.getElementsByClassName("rotatecolors")[0].style.WebkitFilter = "hue-rotate("+newVal+"deg)";
-        	
+    	
+    	// Norotate class should get a negative value
+    	document.getElementsByClassName("norotate")[0].style.WebkitFilter = "hue-rotate(-"+newVal+"deg)";    	
+    	document.getElementsByClassName("norotate")[1].style.WebkitFilter = "hue-rotate(-"+newVal+"deg)";
+    	
+    
     	if ( this.model.get(this.rotatecolorsbox.name) !== newVal ){
     		this.model.set(this.rotatecolorsbox.name, newVal);
     	}
+    	    	
     },
     
     update : function(settingsmodel){

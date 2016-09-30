@@ -11,7 +11,7 @@ Zarafa.plugins.rotatecolors.RotateColorsPlugin  = Ext.extend(Zarafa.core.ThemePl
     initPlugin : function() {
     	
     	// Add a new class to the body
-    	document.body.className = "rotatecolors";
+    	document.body.className += " rotatecolors";  	
     	
     	// Register insertion point in settings
     	this.registerInsertionPoint('context.settings.category.general', this.RotateColorsSettingsWidget, this);
@@ -31,8 +31,28 @@ Zarafa.onReady(function() {
 	container.registerPlugin(new Zarafa.core.PluginMetaData({
 		name : 'rotatecolors',
 		displayName : _('Rotate Colors'),
-		allowUserDisable : true,
-		allowUserVisible : true,
+		allowUserDisable : false,
+		allowUserVisible : false,
 		pluginConstructor : Zarafa.plugins.rotatecolors.RotateColorsPlugin
 	}));
+	
+	var oldOnHierarchyLoad = Zarafa.onHierarchyLoad;
+	Zarafa.onHierarchyLoad = function(){
+		oldOnHierarchyLoad.apply(Zarafa, arguments);
+		
+		// Add classes to the divs we want to exclude
+		document.getElementById("zarafa-navigationpanel").className += ' norotate';
+		document.getElementById("zarafa-mainpanel").className += ' norotate';
+				
+		var newVal = container.getSettingsModel().get('zarafa/v1/contexts/mail/rotate_colors_value');	
+		
+		// Norotate class should get a negative value
+    	document.getElementsByClassName("norotate")[0].style.WebkitFilter = "hue-rotate(-"+newVal+"deg)";    	
+    	document.getElementsByClassName("norotate")[1].style.WebkitFilter = "hue-rotate(-"+newVal+"deg)"; 
+				
+	};
+	
 });
+
+
+
