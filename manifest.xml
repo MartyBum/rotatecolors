@@ -27,9 +27,6 @@
 					<clientfile load="source">js/settings/RotateColorsSettingsWidget.js</clientfile>
 					<clientfile load="source">js/rotatecolors.js</clientfile>
 				</client>
-				<resources>
-				<resourcefile load="source">css/rotatecolors.css</resourcefile>
-				</resources>
 			</files>
 		</component>
 	</components>
